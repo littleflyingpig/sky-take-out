@@ -108,4 +108,17 @@ public class EmployeeServiceImpl implements EmployeeService {
         log.info("records:{}", records);
         return new PageResult(total, records);
     }
+
+    /**
+     * 启用禁用功能
+     * @param status
+     * @param id
+     */
+    public void startOrStop(Integer status, Long id){
+        Employee employee = new Employee();
+        employee.setStatus(status);
+        employee.setId(id);
+
+        employeeMapper.update(employee);
+    }
 }
