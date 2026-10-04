@@ -68,6 +68,11 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
      * @param registry
      */
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
+        // 把 /images/** 映射到本地磁盘
+        registry.addResourceHandler("/images/**")
+                .addResourceLocations("file:D:/workplace/Java/sky_images/");
+
+        // 原有的 knife4j 配置保留
         registry.addResourceHandler("/doc.html").addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
