@@ -104,8 +104,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         Long total = page.getTotal();
         List<Employee> records = page.getResult();
-        log.info("name:{}", employeePageQueryDTO.getName());
-        log.info("records:{}", records);
         return new PageResult(total, records);
     }
 
