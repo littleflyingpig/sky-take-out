@@ -36,6 +36,7 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     public User wxLogin(UserLoginDTO userLoginDTO) {
+
         String openid = getOpenid(userLoginDTO.getCode());
 
         //判断openid是否为空，如果为空表示登录失败，抛出业务异常
@@ -65,6 +66,13 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     private String getOpenid(String code){
+
+        // 测试分支：code 是 "test" 时，直接用固定 openid
+        if ("test".equals(code)) {
+            log.info("使用测试 openid");
+            return "test_openid_001";
+        }
+
         //调用微信接口服务，获得当前微信用户的openid
         Map<String, String> map = new HashMap<>();
         map.put("appid",weChatProperties.getAppid());

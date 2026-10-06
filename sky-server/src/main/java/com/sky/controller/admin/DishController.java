@@ -4,11 +4,10 @@ import com.sky.dto.DishDTO;
 import com.sky.dto.DishPageQueryDTO;
 import com.sky.result.PageResult;
 import com.sky.result.Result;
-import com.sky.service.DeleteService;
+import com.sky.service.impl.DeleteServiceImpl;
 import com.sky.service.DishService;
 import com.sky.vo.DishVO;
 import lombok.extern.slf4j.Slf4j;
-import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,14 +16,14 @@ import java.util.List;
 /**
  * 菜品管理
  */
-@RestController
+@RestController("adminDishController")
 @Slf4j
 @RequestMapping("/admin/dish")
 public class DishController {
     @Autowired
     private DishService dishService;
     @Autowired
-    private DeleteService deleteService;
+    private DeleteServiceImpl deleteService;
     /**
      * 新增菜品
      * @param dishDTO

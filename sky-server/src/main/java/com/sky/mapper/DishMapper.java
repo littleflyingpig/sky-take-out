@@ -64,4 +64,11 @@ public interface DishMapper {
      * @param dish
      */
     void update(Dish dish);
+
+    /**
+     * 动态查菜品为id的列表
+     * @param dish
+     * @return
+     */
+    List<Dish> list(Dish dish);
 }
