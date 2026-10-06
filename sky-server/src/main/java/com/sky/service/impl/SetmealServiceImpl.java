@@ -72,11 +72,16 @@ public class SetmealServiceImpl implements SetmealService {
      * @return
      */
     public PageResult pageQuery(SetmealPageQueryDTO setmealPageQueryDTO) {
+        log.info("分页参数：page={}, pageSize={}",
+                setmealPageQueryDTO.getPage(),
+                setmealPageQueryDTO.getPageSize());
         int pageNum = setmealPageQueryDTO.getPage();
         int pageSize = setmealPageQueryDTO.getPageSize();
 
         PageHelper.startPage(pageNum, pageSize);
         Page<SetmealVO> page = setmealMapper.pageQuery(setmealPageQueryDTO);
+
+        log.info("查询结果：total={}, records={}", page.getTotal(), page.getResult());
         return new PageResult(page.getTotal(), page.getResult());
     }
 

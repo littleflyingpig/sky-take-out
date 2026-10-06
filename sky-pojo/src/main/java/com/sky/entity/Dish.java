@@ -47,4 +47,7 @@ public class Dish implements Serializable {
 
     private Long updateUser;
 
+    public BigDecimal getA() {
+        return null;
+    }
 }
