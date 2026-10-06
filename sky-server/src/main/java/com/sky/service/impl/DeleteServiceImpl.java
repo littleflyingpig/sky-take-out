@@ -35,7 +35,7 @@ public class DeleteServiceImpl implements DeleteService {
             }
         }
         //判断是否关联，通过菜品id来查套餐id
-        List<Long> setmealIds = setmealDishMapper.getSetmealIdByDishId(ids);
+        List<Long> setmealIds = setmealDishMapper.getSetmealIdsByDishIds(ids);
         if(setmealIds != null && setmealIds.size() > 0){
             throw new DeletionNotAllowedException(MessageConstant.SETMEAL_ON_SALE);
         }
